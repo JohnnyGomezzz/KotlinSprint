@@ -11,26 +11,22 @@ fun main(){
     val seconds = readlnOrNull()!!.toInt()
 
     val minutes = seconds / TIME_UNITS
-    val hours = minutes / TIME_UNITS
-    val secondsRem = seconds % TIME_UNITS
-    val minutesRem = minutes % TIME_UNITS
+    var hours = (minutes / TIME_UNITS).toString()
+    var secondsRem = (seconds % TIME_UNITS).toString()
+    var minutesRem = (minutes % TIME_UNITS).toString()
 
-    var hoursString = hours.toString()
-    var minutesRemString = minutesRem.toString()
-    var secondsRemString = secondsRem.toString()
-
-        if (hours < 10) {
-        hoursString = "0$hoursString"
+        if (hours.length == 1) {
+        hours = "0$hours"
     }
 
-    if (minutesRem < 10) {
-        minutesRemString = "0$minutesRemString"
+    if (minutesRem.length == 1) {
+        minutesRem = "0$minutesRem"
     }
 
-    if (secondsRem < 10) {
-        secondsRemString = "0$secondsRemString"
+    if (secondsRem.length == 1) {
+        secondsRem = "0$secondsRem"
     }
 
-    println("Время в формате ЧЧ:ММ:СС: $hoursString:$minutesRemString:$secondsRemString")
+    println("Время в формате ЧЧ:ММ:СС: $hours:$minutesRem:$secondsRem")
 
 }
