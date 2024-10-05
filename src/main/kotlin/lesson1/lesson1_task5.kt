@@ -7,11 +7,12 @@ package org.example.lesson1
  */
 
 fun main(){
+    val TIME_UNITS = 60
     val seconds = 6480
-    val minutes = seconds / 60
-    val hours = minutes / 60
-    val secondsRem = seconds % 60
-    val minutesRem = minutes % 60
+    val minutes = seconds / TIME_UNITS
+    val hours = minutes / TIME_UNITS
+    val secondsRem = seconds % TIME_UNITS
+    val minutesRem = minutes % TIME_UNITS
 
     println("Время, проведенное в космосе Гагариным: 0$hours:$minutesRem:0$secondsRem")
 
