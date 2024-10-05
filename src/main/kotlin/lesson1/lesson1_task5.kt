@@ -6,8 +6,9 @@ package org.example.lesson1
 - Значения часов, минут и секунд отображать двумя цифрами.
  */
 
+const val TIME_UNITS = 60
+
 fun main(){
-    val TIME_UNITS = 60
     val seconds = 6480
     val minutes = seconds / TIME_UNITS
     val hours = minutes / TIME_UNITS
