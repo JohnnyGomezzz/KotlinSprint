@@ -4,8 +4,6 @@ package org.example.lesson1
 Перевод секунд в формат ЧЧ:ММ:СС
  */
 
-const val TIME_UNITS = 60
-
 fun main(){
     println("Введите количество секунд: ")
     val seconds = readlnOrNull()!!.toInt()
