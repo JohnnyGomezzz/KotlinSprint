@@ -1,6 +1,7 @@
 package org.example.lesson2
 
 const val TIME_UNITS = 60
+const val DAY_HOURS = 24
 
 fun main() {
     val departureHours = 9
@@ -9,7 +10,7 @@ fun main() {
     val travelTime = 457
     val totalTime = totalDepartureMinutes + travelTime
 
-    var arrivalHours = ((totalTime / TIME_UNITS) % 24).toString()
+    var arrivalHours = ((totalTime / TIME_UNITS) % DAY_HOURS).toString()
     var arrivalMinutes = (totalTime % TIME_UNITS).toString()
 
     if (arrivalHours.length == 1) {
@@ -20,5 +21,11 @@ fun main() {
         arrivalMinutes = "0$arrivalMinutes"
     }
 
-    println("Время прибытия: $arrivalHours:$arrivalMinutes")
+    println(
+        String.format(
+            "Время прибытия: %s:%s",
+            arrivalHours,
+            arrivalMinutes
+        )
+    )
 }
