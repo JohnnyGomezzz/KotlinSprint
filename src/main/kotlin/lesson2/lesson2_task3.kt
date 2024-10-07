@@ -10,20 +10,12 @@ fun main() {
     val travelTime = 457
     val totalTime = totalDepartureMinutes + travelTime
 
-    var arrivalHours = ((totalTime / TIME_UNITS) % DAY_HOURS).toString()
-    var arrivalMinutes = (totalTime % TIME_UNITS).toString()
-
-    if (arrivalHours.length == 1) {
-        arrivalHours = "0$arrivalHours"
-    }
-
-    if (arrivalMinutes.length == 1) {
-        arrivalMinutes = "0$arrivalMinutes"
-    }
+    var arrivalHours = ((totalTime / TIME_UNITS) % DAY_HOURS)
+    var arrivalMinutes = (totalTime % TIME_UNITS)
 
     println(
         String.format(
-            "Время прибытия: %s:%s",
+            "Время прибытия: %02d:%02d",
             arrivalHours,
             arrivalMinutes
         )
