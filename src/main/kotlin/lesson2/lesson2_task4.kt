@@ -1,12 +1,14 @@
 package org.example.lesson2
 
+const val PERCENTS = 100
+
 fun main() {
     val crystalOre = 7
     val ironOre = 11
     val minerBuff = 20
 
-    val bonusCrystalOre = crystalOre * minerBuff / 100
-    val bonusIronOre = ironOre * minerBuff / 100
+    val bonusCrystalOre = crystalOre * minerBuff / PERCENTS
+    val bonusIronOre = ironOre * minerBuff / PERCENTS
 
     println(
         String.format(
