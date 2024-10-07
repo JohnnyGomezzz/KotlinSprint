@@ -8,7 +8,7 @@ fun main() {
         println(
             String.format
                 (
-                "%s x %s = %s",
+                "%d x %d = %d",
                 num,
                 multiplier,
                 num * multiplier
