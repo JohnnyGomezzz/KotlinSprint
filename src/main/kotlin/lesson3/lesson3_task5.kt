@@ -2,7 +2,7 @@ package org.example.lesson3
 
 fun main() {
     val move = "D2-D4;0"
-    val items = move.split("-", ";").toList()
+    val items = move.split("-", ";")
 
     val from = items[0]
     val to = items[1]
