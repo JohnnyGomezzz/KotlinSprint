@@ -2,8 +2,6 @@ package org.example.lesson2
 
 import kotlin.math.pow
 
-const val PERCENTS = 100
-
 fun main() {
     val startSum = 70_000
     val increasingRatio = 1
