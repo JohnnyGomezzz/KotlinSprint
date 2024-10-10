@@ -2,23 +2,18 @@ package org.example.lesson4
 
 fun main() {
     var dayOfTraining: Int
-    var trainingArms: Boolean
-    var trainingLegs: Boolean
-    var trainingBack: Boolean
-    var trainingAbs: Boolean
+    var trainingArms = false
+    var trainingLegs = false
+    var trainingBack = false
+    var trainingAbs = false
+    var isEven: Boolean
 
     dayOfTraining = 5
 
     if (dayOfTraining % 2 == 0) {
-        trainingArms = false
-        trainingLegs = true
-        trainingBack = true
-        trainingAbs = false
+        isEven = true
     } else {
-        trainingArms = true
-        trainingLegs = false
-        trainingBack = false
-        trainingAbs = true
+        isEven = false
     }
 
     println(
@@ -29,10 +24,10 @@ fun main() {
                     "Упражнения для спины:\t%s\n" +
                     "Упражнения для пресса:\t%s\n",
             dayOfTraining,
-            trainingArms,
-            trainingLegs,
-            trainingBack,
-            trainingAbs
+            trainingArms == isEven,
+            trainingLegs == !isEven,
+            trainingBack == !isEven,
+            trainingAbs == isEven
         )
     )
 }
