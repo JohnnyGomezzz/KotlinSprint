@@ -1,5 +1,11 @@
 package org.example.lesson4
 
+const val IS_DAMAGED = false
+const val MIN_NUMBER_OF_CREW = 55
+const val OPTIMAL_NUMBER_OF_CREW = 70
+const val MIN_NUMBER_OF_FOOD_CRATES = 50
+const val IS_WEATHER_FINE = true
+
 fun main() {
     print("Повреждён ли корабль? (true/false): ")
     val isDamaged = readln().toBoolean()
@@ -14,8 +20,11 @@ fun main() {
     val isWeatherFine = readln().toBoolean()
 
     val isReadyForTrip =
-        ((!isDamaged) && (numberOfCrew in 55..70) && (numberOfFoodCrates > 50) && isWeatherFine)
-                || ((numberOfCrew == 70) && (numberOfFoodCrates >= 50) && isWeatherFine)
+        ((isDamaged == IS_DAMAGED) && (numberOfCrew in MIN_NUMBER_OF_CREW..OPTIMAL_NUMBER_OF_CREW) &&
+                (numberOfFoodCrates > MIN_NUMBER_OF_FOOD_CRATES) && (isWeatherFine == IS_WEATHER_FINE)) ||
+
+                ((numberOfCrew == OPTIMAL_NUMBER_OF_CREW) && (numberOfFoodCrates >= MIN_NUMBER_OF_FOOD_CRATES) &&
+                        (isWeatherFine == IS_WEATHER_FINE))
 
     println("Корабль готов отправиться в плавание: $isReadyForTrip")
 }
