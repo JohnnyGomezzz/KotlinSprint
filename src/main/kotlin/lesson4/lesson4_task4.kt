@@ -1,20 +1,12 @@
 package org.example.lesson4
 
 fun main() {
-    var dayOfTraining: Int
+    var dayOfTraining = 5
     var trainingArms = false
     var trainingLegs = false
     var trainingBack = false
     var trainingAbs = false
-    var isEven: Boolean
-
-    dayOfTraining = 5
-
-    if (dayOfTraining % 2 == 0) {
-        isEven = true
-    } else {
-        isEven = false
-    }
+    var isEven = dayOfTraining % 2 == 0
 
     println(
         String.format(
