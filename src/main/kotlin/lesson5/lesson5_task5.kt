@@ -27,7 +27,7 @@ fun main() {
 
     val userNumbers = listOf(firstUserNumber, secondUserNumber, thirdUserNumber)
 
-    val countOfGuessedNumbers = hiddenNumbers.intersect(userNumbers).toList().size
+    val countOfGuessedNumbers = hiddenNumbers.intersect(userNumbers).size
 
     when (countOfGuessedNumbers) {
         1 -> {
@@ -49,6 +49,6 @@ fun main() {
 
     println(
         "Загаданы были числа " +
-                hiddenNumbers.toString().replace("[", "").replace("]", "")
+                hiddenNumbers.joinToString(", ")
     )
 }
