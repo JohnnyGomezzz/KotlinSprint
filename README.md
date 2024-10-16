@@ -1,1 +1,1 @@
-10-дневный практикум по основам Kotlin от ievetrov
+Kotlin Sprint by ievetrov
