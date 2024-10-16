@@ -22,7 +22,6 @@ fun main() {
             break
         } else if (countOfAttempts == 0) {
             println("К сожалению, вам не удалось угадать число. Попробуйте в другой раз.")
-            break
         } else {
             println("Пока не угадали. Осталось попыток: $countOfAttempts")
         }
