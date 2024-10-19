@@ -7,7 +7,7 @@ fun main() {
     print("Проверить наличие в рецепте ингредиента: ")
     val sourceIngredient = readln()
 
-    if (ingredientsOfSoup.contains(sourceIngredient)) {
+    if (sourceIngredient in ingredientsOfSoup) {
         println("Ингредиент $sourceIngredient в рецепте присутствует")
     } else {
         println("Такого ингредиента в рецепте нет")
