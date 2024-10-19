@@ -2,6 +2,7 @@ package org.example.lesson8
 
 fun main() {
     var changeableIngredient: String
+    var indexOfChangeableIngredient: Int
     val ingredientsOfSoup = arrayOf(
         "мясо", "картофель", "морковь", "лук", "лавровый лист", "соль", "перец", "чеснок", "зелень"
     )
@@ -11,15 +12,17 @@ fun main() {
         println("Какой ингредиент хотите заменить?")
         changeableIngredient = readln()
 
-        if (!ingredientsOfSoup.contains(changeableIngredient)) {
+        indexOfChangeableIngredient = ingredientsOfSoup.indexOf(changeableIngredient)
+
+        if (indexOfChangeableIngredient == -1) {
             println("Такого ингредиента нет. Пожалуйста, выберите из списка.")
         }
-    } while (!ingredientsOfSoup.contains(changeableIngredient))
+    } while (indexOfChangeableIngredient == -1)
 
     println("На какой ингредиент хотите заменить $changeableIngredient?")
     val newIngredient = readln()
 
-    ingredientsOfSoup[ingredientsOfSoup.indexOf(changeableIngredient)] = newIngredient
+    ingredientsOfSoup[indexOfChangeableIngredient] = newIngredient
 
     println(
         "Готово! Вы сохранили следующий список:\n" +
