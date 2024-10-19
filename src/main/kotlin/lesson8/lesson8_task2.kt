@@ -7,12 +7,11 @@ fun main() {
     print("Проверить наличие в рецепте ингредиента: ")
     val sourceIngredient = readln()
 
-    for (i in ingredientsOfSoup.indices) {
-        if (ingredientsOfSoup[i] == sourceIngredient) {
-            println("Ингредиент ${ingredientsOfSoup[i]} в рецепте присутствует")
-            break
-        } else if (i == ingredientsOfSoup.size - 1) {
-            println("Такого ингредиента в рецепте нет")
+    for (i in ingredientsOfSoup) {
+        if (i == sourceIngredient) {
+            println("Ингредиент $i в рецепте присутствует")
+            return
         }
     }
+    println("Такого ингредиента в рецепте нет")
 }
