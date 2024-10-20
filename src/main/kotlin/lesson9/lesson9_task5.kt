@@ -7,7 +7,7 @@ const val NUM_OF_INGREDIENTS = 5
 fun main() {
     println("Введите поочерёдно $NUM_OF_INGREDIENTS ингредиентов.")
 
-    val userIngredients: MutableList<String> = mutableListOf()
+    val userIngredients: MutableSet<String> = mutableSetOf()
     var counter = 1
 
     while (counter <= NUM_OF_INGREDIENTS) {
@@ -21,6 +21,7 @@ fun main() {
         userIngredients.add(ingredient)
         counter++
     }
+    userIngredients.toSet()
     println(userIngredients.sorted().joinToString()
         .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() })
 }
