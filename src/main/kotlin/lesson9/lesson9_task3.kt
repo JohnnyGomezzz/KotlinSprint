@@ -7,13 +7,17 @@ fun main() {
     val numOfPortions = readln().toInt()
 
     val numOfIngredientsForSeveralPortions = omeletRecipe.map { it * numOfPortions }
+    val numOfEggs = numOfIngredientsForSeveralPortions[0]
+    val volumeOfMilk = numOfIngredientsForSeveralPortions[1]
+    val weightOfButter = numOfIngredientsForSeveralPortions[2]
+
     println(
         String.format(
             "На %d порций вам понадобится: Яиц – %d шт, молока – %d мл, сливочного масла – %d г",
             numOfPortions,
-            numOfIngredientsForSeveralPortions[0],
-            numOfIngredientsForSeveralPortions[1],
-            numOfIngredientsForSeveralPortions[2]
+            numOfEggs,
+            volumeOfMilk,
+            weightOfButter
         )
     )
 }
