@@ -1,5 +1,7 @@
 package org.example.lesson8
 
+const val IS_ABSENT = -1
+
 fun main() {
     var changeableIngredient: String
     var indexOfChangeableIngredient: Int
@@ -14,10 +16,10 @@ fun main() {
 
         indexOfChangeableIngredient = ingredientsOfSoup.indexOf(changeableIngredient)
 
-        if (indexOfChangeableIngredient == -1) {
+        if (indexOfChangeableIngredient == IS_ABSENT) {
             println("Такого ингредиента нет. Пожалуйста, выберите из списка.")
         }
-    } while (indexOfChangeableIngredient == -1)
+    } while (indexOfChangeableIngredient == IS_ABSENT)
 
     println("На какой ингредиент хотите заменить $changeableIngredient?")
     val newIngredient = readln()
