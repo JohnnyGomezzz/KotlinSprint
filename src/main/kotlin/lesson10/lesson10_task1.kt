@@ -1,7 +1,6 @@
 package org.example.lesson10
 
 fun main() {
-    var currentRound = 1
     var player1Points = 0
     var player2Points = 0
 
@@ -12,11 +11,9 @@ fun main() {
     print("Введите количество раундов: ")
     val totalRounds = readln().toInt()
 
-    while (currentRound <= totalRounds) {
+    for (i in 1..totalRounds) {
         player1Points += turnOf(player1Name)
         player2Points += turnOf(player2Name)
-
-        currentRound++
     }
     val winner = if (player1Points > player2Points) "Победил $player1Name!"
     else if (player1Points < player2Points) "Победил $player2Name!"
