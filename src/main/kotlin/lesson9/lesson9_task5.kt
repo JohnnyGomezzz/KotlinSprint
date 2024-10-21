@@ -7,7 +7,7 @@ const val NUM_OF_INGREDIENTS = 5
 fun main() {
     println("Введите поочерёдно $NUM_OF_INGREDIENTS ингредиентов.")
 
-    val userIngredients: MutableSet<String> = mutableSetOf()
+    val userIngredients: MutableList<String> = mutableListOf()
     var counter = 1
 
     while (counter <= NUM_OF_INGREDIENTS) {
