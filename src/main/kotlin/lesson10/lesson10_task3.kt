@@ -7,13 +7,12 @@ fun main() {
 
 fun generatePassword(lengthOfPassword: Int): String {
     val password = mutableListOf<String>()
+    val symbol = (' '..'/')
+    val number = (0..9)
 
     for (i in 1..lengthOfPassword) {
-        val number = (0..9).random().toString()
-        val symbol = "!\"#\$%&'()*+,-./ ".split("").random()
-
-        if (i % 2 == 0) password.add(symbol)
-        else password.add(number)
+        if (i % 2 == 0) password.add(symbol.random().toString())
+        else password.add(number.random().toString())
     }
     return password.joinToString("")
 }
