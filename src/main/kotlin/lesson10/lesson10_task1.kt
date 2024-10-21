@@ -12,8 +12,8 @@ fun main() {
     val totalRounds = readln().toInt()
 
     for (i in 1..totalRounds) {
-        player1Points += turnOf(player1Name)
-        player2Points += turnOf(player2Name)
+        player1Points += throwDice(player1Name)
+        player2Points += throwDice(player2Name)
     }
     val winner = if (player1Points > player2Points) "Победил $player1Name!"
     else if (player1Points < player2Points) "Победил $player2Name!"
@@ -31,7 +31,7 @@ fun main() {
     )
 }
 
-fun turnOf(name: String): Int {
+fun throwDice(name: String): Int {
     val points = (1..6).random()
     println("Бросает $name!\nВыпало $points")
     return points
