@@ -4,34 +4,27 @@ const val MIN_NUM_OF_SYM = 4
 
 fun main() {
     println("Придумайте логин (не менее $MIN_NUM_OF_SYM символов): ")
-    val userLogin = validText()
+    val userLogin = readln()
 
     println("Придумайте пароль (не менее $MIN_NUM_OF_SYM символов): ")
-    val userPassword = validText()
+    val userPassword = readln()
 
-    println(
-        String.format(
-            "Ваш логин: %s\n" +
-                    "Ваш пароль: %s\n" +
-                    "Добро пожаловать!",
-            userLogin,
-            userPassword
+    if (validate(userLogin) && validate(userPassword)) {
+        println(
+            String.format(
+                "Ваш логин: %s\n" +
+                        "Ваш пароль: %s\n" +
+                        "Добро пожаловать!",
+                userLogin,
+                userPassword
+            )
         )
-    )
+    } else {
+        println("Логин или пароль недостаточно длинные")
+    }
 }
 
-fun validText(): String {
-    var text: String
-
-    do {
-        text = readln()
-        if (text.length < MIN_NUM_OF_SYM) {
-            println(
-                "Недостаточно символов. Минимум - $MIN_NUM_OF_SYM\n" +
-                        "Введите заново: "
-            )
-        }
-    } while (text.length < MIN_NUM_OF_SYM)
-
-    return text
+fun validate(text: String): Boolean {
+    if (text.length >= MIN_NUM_OF_SYM) return true
+    return false
 }
