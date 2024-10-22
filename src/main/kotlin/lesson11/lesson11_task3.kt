@@ -1,8 +1,8 @@
 package org.example.lesson11
 
 class Room(
-    val id: Int,
-    val name: String,
+    val roomId: Int,
+    val roomName: String,
     val background: String,
     val participants: MutableList<Participant> = mutableListOf(),
 ) {
@@ -14,7 +14,7 @@ class Room(
         val statusList = listOf("разговаривает", "микрофон выключен", "заглушен")
 
         for (participant in participants) {
-            if (participant.name == name) {
+            if (participant.participantName == name) {
                 participant.status = statusList[statusIndex]
             }
         }
@@ -22,21 +22,21 @@ class Room(
 }
 
 class Participant(
-    val id: Int,
-    val name: String,
+    val participantId: Int,
+    val participantName: String,
     val avatar: String,
     var status: String = "заглушен",
 )
 
 fun main() {
     val conversationRoom = Room(
-        id = 1,
-        name = "Общение",
+        roomId = 1,
+        roomName = "Общение",
         background = "company.com/pix/bgr1.jpg",
     )
     val talker = Participant(
-        id = 1,
-        name = "Алёша",
+        participantId = 1,
+        participantName = "Алёша",
         avatar = "company.com/pix/ava1.jpg"
     )
     conversationRoom.addParticipant(talker)
