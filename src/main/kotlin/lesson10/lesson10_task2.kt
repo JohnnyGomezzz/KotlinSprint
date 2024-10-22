@@ -24,7 +24,4 @@ fun main() {
     }
 }
 
-fun validate(text: String): Boolean {
-    if (text.length >= MIN_NUM_OF_SYM) return true
-    return false
-}
+fun validate(text: String) = text.length >= MIN_NUM_OF_SYM
