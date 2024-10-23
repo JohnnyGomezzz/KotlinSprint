@@ -1,32 +1,47 @@
 package org.example.lesson10
 
 fun main() {
-    var countOfWins = 0
+    val player1 = "Человек"
+    val player2 = "Компьютер"
+    var player1wins = 0
+    var player2wins = 0
+    var result: Int
 
     while (true) {
-        countOfWins += play("Человек", "Компьютер")
-        println("Хотите бросить кости еще раз? Введите Да или Нет")
+        result = playRound(player1, player2)
+
+        if (result > 0) {
+            println("Победил $player1!")
+            player1wins += 1
+        } else if (result < 0) {
+            println("Победил $player2!")
+            player2wins += 1
+        } else println("Ничья!")
+
+        println("Хотите сыграть ещё раунд? (да/нет)")
         if (readln().equals("да", ignoreCase = true)) continue
-        else break
+        break
     }
-    println("Количество побед Человека: $countOfWins")
+    println(
+        String.format(
+            """|Количество побед:
+            |%s - %d
+            |%s - %d
+        """.trimMargin(),
+            player1,
+            player1wins,
+            player2,
+            player2wins
+        )
+    )
 }
 
-fun rollDice(name: String): Int {
+fun diceThrow(playerName: String): Int {
     val points = (1..6).random()
-    println("Бросает $name!\nВыпало $points")
+
+    println("Бросает $playerName. Выпало $points")
+
     return points
 }
 
-fun play(player1Name: String, player2Name: String): Int {
-    var player1Points = 0
-    var player2Points = 0
-
-    player1Points += rollDice(player1Name)
-    player2Points += rollDice(player2Name)
-
-    if(win(player1Points, player2Points)) return 1
-    return 0
-}
-
-fun win(player1Points: Int, player2Points: Int) = player1Points > player2Points
+fun playRound(player1: String, player2: String) = diceThrow(player1) - diceThrow(player2)
