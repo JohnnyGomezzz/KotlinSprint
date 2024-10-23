@@ -12,10 +12,10 @@ fun main() {
 
         if (result > 0) {
             println("Победил $player1!")
-            player1wins += 1
+            player1wins ++
         } else if (result < 0) {
             println("Победил $player2!")
-            player2wins += 1
+            player2wins ++
         } else println("Ничья!")
 
         println("Хотите сыграть ещё раунд? (да/нет)")
