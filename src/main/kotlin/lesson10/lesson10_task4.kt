@@ -25,13 +25,8 @@ fun play(player1Name: String, player2Name: String): Int {
     player1Points += rollDice(player1Name)
     player2Points += rollDice(player2Name)
 
-    return countOfWins(player1Points, player2Points)
+    if(win(player1Points, player2Points)) return 1
+    return 0
 }
 
-fun countOfWins(player1Points: Int, player2Points: Int): Int {
-    var count = 0
-
-    if (player1Points > player2Points) count = 1
-
-    return count
-}
+fun win(player1Points: Int, player2Points: Int) = player1Points > player2Points
