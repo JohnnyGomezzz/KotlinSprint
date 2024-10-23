@@ -1,5 +1,22 @@
 package org.example.lesson11
 
+fun main() {
+    val conversationRoom = Room(
+        roomId = 1,
+        roomName = "Общение",
+        background = "company.com/pix/bgr1.jpg",
+    )
+    val talker = Participant(
+        participantId = 1,
+        participantName = "Алёша",
+        avatar = "company.com/pix/ava1.jpg"
+    )
+    conversationRoom.addParticipant(talker)
+    conversationRoom.changeParticipantStatus("Алёша", 1)
+
+    println(conversationRoom.participants[0].status)
+}
+
 class Room(
     val roomId: Int,
     val roomName: String,
@@ -27,20 +44,3 @@ class Participant(
     val avatar: String,
     var status: String = "заглушен",
 )
-
-fun main() {
-    val conversationRoom = Room(
-        roomId = 1,
-        roomName = "Общение",
-        background = "company.com/pix/bgr1.jpg",
-    )
-    val talker = Participant(
-        participantId = 1,
-        participantName = "Алёша",
-        avatar = "company.com/pix/ava1.jpg"
-    )
-    conversationRoom.addParticipant(talker)
-    conversationRoom.changeParticipantStatus("Алёша", 1)
-
-    println(conversationRoom.participants[0].status)
-}
