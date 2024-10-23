@@ -1,5 +1,9 @@
 package org.example.lesson11
 
+fun main() {
+
+}
+
 class Category(
     val categoryId: Int,
     val categoryName: String,
@@ -57,7 +61,3 @@ class Ingredient(
     val unit: String,
     val quantityPerOnePortion: Int,
 )
-
-fun main() {
-
-}
