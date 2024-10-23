@@ -7,6 +7,7 @@ fun main() {
 class Category(
     val categoryId: Int,
     val categoryName: String,
+    val imageUrl: String,
     val recipes: MutableList<Recipe> = mutableListOf(),
 ) {
     fun addRecipe(recipe: Recipe) {
@@ -21,9 +22,10 @@ class Category(
 class Recipe(
     val recipeId: Int,
     val recipeName: String,
+    val imageUrl: String,
     val ingredients: MutableList<Ingredient> = mutableListOf(),
     var isFavorite: Boolean = false,
-    var cookingMethod: String,
+    var cookingMethod: MutableList<String> = mutableListOf(),
     var numOfPortions: Int = 1,
 ) {
     fun addToFavorites() {
@@ -42,8 +44,8 @@ class Recipe(
         numOfPortions--
     }
 
-    fun addCookingMethod() {
-        cookingMethod = readln()
+    fun addCookingMethod(method: String) {
+        cookingMethod.add(method)
     }
 
     fun addIngredient(ingredient: Ingredient) {
