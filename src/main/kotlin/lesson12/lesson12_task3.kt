@@ -1,5 +1,7 @@
 package org.example.lesson12
 
+const val CELSIUS_TO_KELVIN = 273
+
 fun main() {
     val tuesdayWeather = KelvinWeather(290, 287, false)
     val saturdayWeather = KelvinWeather(295, 289, true)
@@ -9,8 +11,8 @@ fun main() {
 }
 
 class KelvinWeather(_dayTemperature: Int, _nightTemperature: Int, _isRainfall: Boolean) {
-    val dayTemperature = _dayTemperature - 273
-    val nightTemperature = _nightTemperature - 273
+    val dayTemperature = _dayTemperature - CELSIUS_TO_KELVIN
+    val nightTemperature = _nightTemperature - CELSIUS_TO_KELVIN
     val isRainfall: Boolean = _isRainfall
 
     fun showWeather() {
