@@ -2,8 +2,6 @@ package org.example.lesson9
 
 import java.util.*
 
-const val NUM_OF_INGREDIENTS = 5
-
 fun main() {
     println("Введите поочерёдно $NUM_OF_INGREDIENTS ингредиентов.")
 
