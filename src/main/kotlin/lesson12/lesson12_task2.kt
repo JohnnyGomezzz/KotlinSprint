@@ -1,12 +1,12 @@
 package org.example.lesson12
 
 fun main() {
-    val tuesdayWeather = Weather(
+    val tuesdayWeather = Weather2(
         dayTemperature = 25,
         nightTemperature = 19,
         isRainfall = true,
     )
-    val saturdayWeather = Weather(
+    val saturdayWeather = Weather2(
         dayTemperature = 22,
         nightTemperature = 16,
         isRainfall = false,
@@ -16,7 +16,7 @@ fun main() {
     saturdayWeather.showWeather()
 }
 
-class Weather(
+class Weather2(
     var dayTemperature: Int,
     var nightTemperature: Int,
     var isRainfall: Boolean,
