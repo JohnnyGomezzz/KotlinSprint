@@ -8,17 +8,14 @@ fun main() {
         PhoneBook3("Евангелина", 89118895544, "Вкусноточка"),
         PhoneBook3("Олег", 89056984774, "Лукойл"),
     )
-    phoneList.forEach { println(it.company) }
+    phoneList.mapNotNull { it.company }.forEach { println(it) }
 }
 
 class PhoneBook3(
-    _name: String,
-    _phoneNumber: Long,
+    val name: String,
+    val phoneNumber: Long,
     val company: String? = null
 ) {
-    val name = _name
-    val phoneNumber = _phoneNumber
-
     fun getInfo() {
         println(
             "- Имя: $name\n" +
