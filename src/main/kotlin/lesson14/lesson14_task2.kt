@@ -20,6 +20,7 @@ open class OceanLiner(
     val crew: Int,
     val capacity: Int,
     val numOfPassengers: Int = 0,
+    val isBreakingIce: Boolean = false,
 ) {
     open fun shipLoadingStart() {
         println("Трап выдвинут. Погрузка $name начата.")
@@ -48,8 +49,7 @@ class Icebreaker(
     speed: Int,
     crew: Int,
     capacity: Int,
-    val isBreakingIce: Boolean = true,
-) : OceanLiner(name, speed, crew, capacity) {
+) : OceanLiner(name, speed, crew, capacity, isBreakingIce = true) {
 
     override fun shipLoadingStart() {
         println("Кормовые ворота открыты.  Погрузка $name начата.")
