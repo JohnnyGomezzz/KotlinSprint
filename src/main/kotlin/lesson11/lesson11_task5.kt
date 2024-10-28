@@ -1,36 +1,17 @@
 package org.example.lesson11
 
-/*
-Реализовать класс работы форума (Forum). Для реализации создай дополнительные классы для сущностей “Член форума”
-(с полями userId и userName) и “Сообщение форума” (с полями authorId и message).
-
-Примени паттерн “Строитель” для создания пользователей и сообщений форума. Напрямую объекты не создаются, логика
-должна быть инкапсулирована внутри методов класса.
-
-- createNewUser() создает новых пользователей, принимая имя пользователя. Метод сохраняет нового пользователя в
-общий список и одновременно возвращает новый объект. Генерация id-шников новых пользователей происходит внутри;
-- createNewMessage() создает сообщения, принимая id пользователя. Сообщения создаются только если такой пользователь
-есть на форуме;
-- printThread() печатает в консоль все сообщения добавленные на форум в формате:
-
-    автор: сообщение
-    автор: сообщение
-
-Создай экземпляр Forum и продемонстрируй его работу, добавив двух пользователей и по два сообщения от каждого
-пользователя.
- */
-
 fun main() {
     val newForum = Forum(
         forumId = 1,
         forumName = "Общение",
     )
     val member1 = newForum.createNewUser("Алёша")
-    println(member1)
-    println(newForum.members.toString())
+    val member2 = newForum.createNewUser("Олег")
 
-    val text = "сообщение 1"
-    val message1 = newForum.createNewMessage(member1.userId, text)
+    val message1 = newForum.createNewMessage(member1.userId, "Сообщение 1")
+    val message2 = newForum.createNewMessage(member2.userId, "Сообщение 2")
+    val message3 = newForum.createNewMessage(member1.userId, "Сообщение 3")
+    val message4 = newForum.createNewMessage(member2.userId, "Сообщение 4")
 
     newForum.printThread()
 }
@@ -60,18 +41,19 @@ class Forum(
     }
 
     fun printThread() {
-//        val author: String
-//        val message: String
-//
-//        if (threads.forEach { it.authorId } == members.forEach { it.userId }) {
-//            author = members.forEach { it.userName }.toString()
-//            message = threads.forEach { it.message }.toString()
-//            println("$author: $message")
-//        }
-    }
-
-    fun check(userId: Int) {
-
+        for (member in members) {
+            for (thread in threads) {
+                if (member.userId == thread.authorId) {
+                    println(
+                        String.format(
+                            "%s: %s",
+                            member.userName,
+                            thread.message
+                        )
+                    )
+                }
+            }
+        }
     }
 }
 
