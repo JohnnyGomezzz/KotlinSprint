@@ -19,7 +19,7 @@ fun main() {
 class Chat(
     val chatId: Int,
     val chatName: String,
-    val ids: MutableList<Int> = (1..1000).toMutableList(),
+    var ids: Int = 0,
     val messages: MutableList<Message> = mutableListOf(),
 ) {
     fun addMessage(author: String, text: String) {
@@ -47,9 +47,8 @@ class Chat(
     }
 
     fun getId(): Int {
-        val id = ids.get(0)
-        ids.remove(id)
-        return id
+        ids++
+        return ids
     }
 }
 
