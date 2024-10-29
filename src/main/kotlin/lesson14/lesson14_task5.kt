@@ -47,8 +47,7 @@ class Chat(
     }
 
     fun getId(): Int {
-        ids++
-        return ids
+        return ++ids
     }
 }
 
