@@ -62,19 +62,13 @@ interface SuitableForCargo {
     fun unloadCargo(quantity: Int)
 }
 
-abstract class Vehicle(
-    val name: String,
-    val maxNumOfPassengers: Int = 0,
-    var currentNumOfPassengers: Int = 0,
-    val maxQuantityOfCargo: Int = 0,
-    var currentQuantityOfCargo: Int = 0,
-)
-
 class Truck(
-    name: String,
-    currentNumOfPassengers: Int = 0,
-    currentQuantityOfCargo: Int = 0,
-) : Vehicle(name, maxNumOfPassengers = 1, maxQuantityOfCargo = 2000), Movable, SuitableForCargo {
+    val name: String,
+    var currentNumOfPassengers: Int = 0,
+    val maxNumOfPassengers: Int = 1,
+    var currentQuantityOfCargo: Int = 0,
+    val maxQuantityOfCargo: Int = 2000,
+) : Movable, SuitableForCargo {
 
     override fun startRoute() {
         print(name)
@@ -111,9 +105,10 @@ class Truck(
 }
 
 class Car(
-    name: String,
-    currentNumOfPassengers: Int = 0,
-) : Vehicle(name, maxNumOfPassengers = 3), Movable, SuitableForPassengers {
+    val name: String,
+    var currentNumOfPassengers: Int = 0,
+    val maxNumOfPassengers: Int = 3,
+) : Movable, SuitableForPassengers {
 
     override fun startRoute() {
         print(name)
