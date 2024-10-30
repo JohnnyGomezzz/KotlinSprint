@@ -1,21 +1,29 @@
 package org.example.lesson15
+/*
+На форуме есть два типа пользователей – обычные пользователи и администраторы.
+
+Пользователи могут читать форум и писать сообщения. Администраторы дополнительно могут удалять сообщения
+и пользователей.
+
+Опиши классы для сущностей пользователей и администраторов, используя абстрактный класс. У абстрактного класса
+должны быть соответствующие общие поля и методы. Действия на форуме отобрази сообщениями в консоль.
+ */
 
 fun main() {
-    val member = Member(1, "Алёша")
+    val member1 = Member(1, "Алёша")
     val admin = Admin(0, "Чжун Ли")
 
-    member.writeMessage()
-    member.readMessage()
+    member1.writeMessage()
+    admin.createRoom("Беседка")
+    member1.readMessage()
     admin.readMessage()
     admin.deleteMessage()
-    member.deleteMember("Чжун Ли")
-    admin.deleteMember("Алёша")
+    admin.deleteMember(member1.name)
 }
 
 abstract class User(
     val id: Int,
     val name: String,
-    val isAdmin: Boolean = false,
 ) {
     fun readMessage() {
         println("$name читает сообщение")
@@ -24,15 +32,23 @@ abstract class User(
     fun writeMessage() {
         println("$name пишет сообщение")
     }
+}
+
+abstract class SuperUser(
+    id: Int,
+    name: String
+) : User(id, name) {
+
+    fun createRoom(roomName: String) {
+        println("$name создаёт комнату \"$roomName\"")
+    }
 
     fun deleteMember(member: String) {
-        if (isAdmin) println("$name удаляет пользователя $member")
-        else println("У вас нет прав на это действие")
+        println("$name удаляет пользователя $member")
     }
 
     fun deleteMessage() {
-        if (isAdmin) println("$name удаляет сообщение")
-        else println("У вас нет прав на это действие")
+        println("$name удаляет сообщение")
     }
 }
 
@@ -44,4 +60,4 @@ class Member(
 class Admin(
     id: Int,
     name: String,
-) : User(id, name, isAdmin = true)
+) : SuperUser(id, name)
