@@ -37,7 +37,7 @@ private class Player(
         println("$name получил повреждения на $hitPoints хп")
         getInfo()
 
-        if (currentHealth <= 0) death()
+        isDead()
     }
 
     fun getHeal(healPoints: Int) {
@@ -51,6 +51,10 @@ private class Player(
             getInfo()
         }
         return
+    }
+
+    fun isDead() {
+        if (currentHealth <= 0) death()
     }
 
     private fun death() {
