@@ -1,41 +1,42 @@
 package org.example.lesson15
 
 fun main() {
-    val temperature = Temperature(WeatherServer())
-    val precipitationAmount = PrecipitationAmount(WeatherServer())
 
-    temperature.sendData()
-    precipitationAmount.sendData()
+    val server = WeatherServer()
+    server.addDataToList(Temperature())
+    server.addDataToList(PrecipitationAmount())
+    server.printData()
 }
 
 abstract class WeatherStationStats() {
 
-    abstract fun sendData()
+    abstract fun execute()
 }
 
-class Temperature(
-    val receiver: WeatherServer,
-) : WeatherStationStats() {
+class Temperature() : WeatherStationStats() {
 
-    override fun sendData() {
+    override fun execute() {
         println("Данные о средней дневной и ночной температуре")
-        receiver.dataToServer()
     }
 }
 
-class PrecipitationAmount(
-    val receiver: WeatherServer,
-) : WeatherStationStats() {
+class PrecipitationAmount() : WeatherStationStats() {
 
-    override fun sendData() {
+    override fun execute() {
         println("Данные о среднесуточном количестве осадков")
-        receiver.dataToServer()
     }
 }
 
-class WeatherServer() {
+class WeatherServer {
 
-    fun dataToServer() {
-        println("Передача данных на сервер")
+    private val weatherDataList = mutableListOf<WeatherStationStats>()
+
+    fun addDataToList(weatherData: WeatherStationStats) {
+        weatherDataList.add(weatherData)
+    }
+
+    fun printData() {
+        weatherDataList.forEach { it.execute() }
+        weatherDataList.clear()
     }
 }
