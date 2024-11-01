@@ -13,11 +13,5 @@ class Ship(
     val homePort: String,
 ) {
     var name = _name
-        set(value) {
-            if (value != field) {
-                println("Корабль переименовать нельзя!")
-            }
-            field = name
-        }
-
+        set(value) = println("Корабль переименовать нельзя!")
 }
