@@ -13,6 +13,9 @@ fun main() {
     player1.getHeal(20)
     player1.getDamage(25)
     player1.getDamage(20)
+    player1.getDamage(20)
+    player1.getDamage(20)
+    player1.getDamage(20)
 }
 
 private class Player(
@@ -21,6 +24,7 @@ private class Player(
     var strength: Int,
     private var currentHealth: Int = 0,
     private var canHeal: Boolean = false,
+    private var isDead: Boolean = false,
 ) {
     init {
         currentHealth = maxHealth
@@ -31,13 +35,19 @@ private class Player(
     }
 
     fun getDamage(hitPoints: Int) {
-        currentHealth -= hitPoints
-        canHeal = true
+        if (!isDead) {
+            currentHealth -= hitPoints
+            canHeal = true
 
-        println("$name получил повреждения на $hitPoints хп")
-        getInfo()
+            println("$name получил повреждения на $hitPoints хп")
+            getInfo()
 
-        isDead()
+            if (currentHealth <= 0) {
+                isDead = true
+                death()
+            }
+        }
+        return
     }
 
     fun getHeal(healPoints: Int) {
@@ -45,16 +55,13 @@ private class Player(
             if (currentHealth + healPoints > maxHealth) {
                 currentHealth = maxHealth
                 canHeal = false
+
             } else currentHealth += healPoints
 
             println("$name получил лечение на $healPoints хп")
             getInfo()
         }
         return
-    }
-
-    fun isDead() {
-        if (currentHealth <= 0) death()
     }
 
     private fun death() {
