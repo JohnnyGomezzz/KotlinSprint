@@ -10,31 +10,20 @@ fun main() {
     dices.forEach { println(it.drop()) }
 }
 
-open class Dice {
-
-    open fun drop() = 0
+open class Dice(
+    private val points: Int,
+) {
+    fun drop() = points
 }
 
-class Dice4 : Dice() {
-    private val points = (1..4).random()
+class Dice4 : Dice(
+    points = (1..4).random()
+)
 
-    override fun drop(): Int {
-        return points
-    }
-}
+class Dice6 : Dice(
+    points = (1..6).random()
+)
 
-class Dice6 : Dice() {
-    private val points = (1..6).random()
-
-    override fun drop(): Int {
-        return points
-    }
-}
-
-class Dice8 : Dice() {
-    private val points = (1..8).random()
-
-    override fun drop(): Int {
-        return points
-    }
-}
+class Dice8 : Dice(
+    points = (1..8).random()
+)
