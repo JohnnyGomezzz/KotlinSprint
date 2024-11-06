@@ -17,37 +17,9 @@ enum class Ammo(
     val ammoType: String,
     val ammoPower: Int,
 ) {
-    BLUE("Синий снаряд", 5) {
-        override fun getType(): String {
-            return ammoType
-        }
-
-        override fun getPower(): Int {
-            return ammoPower
-        }
-    },
-    GREEN("Зелёный снаряд", 10) {
-        override fun getType(): String {
-            return ammoType
-        }
-
-        override fun getPower(): Int {
-            return ammoPower
-        }
-    },
-    RED("Красный снаряд", 20) {
-        override fun getType(): String {
-            return ammoType
-        }
-
-        override fun getPower(): Int {
-            return ammoPower
-        }
-    };
-
-    abstract fun getType(): String
-
-    abstract fun getPower(): Int
+    BLUE("Синий снаряд", 5),
+    GREEN("Зелёный снаряд", 10),
+    RED("Красный снаряд", 20),
 }
 
 private class Tank(
@@ -58,7 +30,7 @@ private class Tank(
 ) {
     fun loadGun(ammoType: Ammo) {
         if (!isArmed) {
-            println("${ammoType.getType()} заряжен!")
+            println("${ammoType.ammoType} заряжен!")
             loadedAmmoType = ammoType
             isArmed = true
         } else {
@@ -68,7 +40,7 @@ private class Tank(
 
     fun fireGun() {
         if (isArmed) {
-            println("Выстрел! Урон по цели: ${loadedAmmoType?.getPower()}")
+            println("Выстрел! Урон по цели: ${loadedAmmoType?.ammoPower}")
             isArmed = false
         } else {
             println("Орудие не заряжено!")
