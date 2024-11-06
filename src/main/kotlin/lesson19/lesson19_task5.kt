@@ -35,9 +35,11 @@ private class XFilesApp {
         val name = readln()
 
         print("Введите пол: ")
-        val sex = when (readln()) {
-            "MALE" -> PersonSex.MALE
-            "FEMALE" -> PersonSex.FEMALE
+        val answer = readln()
+
+        val sex = when {
+            answer.equals("MALE", ignoreCase = true) -> PersonSex.MALE
+            answer.equals("FEMALE", ignoreCase = true) -> PersonSex.FEMALE
             else -> {
                 println("Пол указан неверно. Карточка не записана")
                 return
