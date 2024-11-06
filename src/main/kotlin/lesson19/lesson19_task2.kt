@@ -12,12 +12,18 @@ fun main() {
     product3.getProductInfo()
 }
 
-enum class Category(
-    val categoryName: String,
-) {
-    CLOTHES("Одежда"),
-    OFFICE_SUPPLIES("Канцтовары"),
-    OTHER("Разное"),
+enum class Category {
+    CLOTHES,
+    OFFICE_SUPPLIES,
+    OTHER;
+
+    fun getCategoryName(): String {
+        return when (this) {
+            CLOTHES -> "Одежда"
+            OFFICE_SUPPLIES -> "Канцтовары"
+            OTHER -> "Разное"
+        }
+    }
 }
 
 private class Product(
@@ -32,7 +38,7 @@ private class Product(
                         "Категория: %s\n" +
                         "Артикул: %d",
                 productName,
-                productCategory.categoryName,
+                productCategory.getCategoryName(),
                 productId
             )
         )
