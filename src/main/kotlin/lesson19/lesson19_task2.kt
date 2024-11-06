@@ -15,23 +15,9 @@ fun main() {
 enum class Category(
     val categoryName: String,
 ) {
-    CLOTHES("Одежда") {
-        override fun getName(): String {
-            return categoryName
-        }
-    },
-    OFFICE_SUPPLIES("Канцтовары") {
-        override fun getName(): String {
-            return categoryName
-        }
-    },
-    OTHER("Разное") {
-        override fun getName(): String {
-            return categoryName
-        }
-    };
-
-    abstract fun getName(): String
+    CLOTHES("Одежда"),
+    OFFICE_SUPPLIES("Канцтовары"),
+    OTHER("Разное"),
 }
 
 private class Product(
@@ -46,7 +32,7 @@ private class Product(
                         "Категория: %s\n" +
                         "Артикул: %d",
                 productName,
-                productCategory.getName(),
+                productCategory.categoryName,
                 productId
             )
         )
