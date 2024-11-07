@@ -16,6 +16,10 @@ fun main() {
     )
 
     val listOfPushedButtons = listOfButtons.map {
-        if (listOfButtons.indexOf(it) % 2 == 0) { it: String -> println("Нажат элемент $it") }(it)
+        { element: String -> "Нажат элемент $element" }(it)
+    }
+
+    for (i in listOfPushedButtons.indices) {
+        if (i % 2 == 0) println(listOfPushedButtons[i])
     }
 }
