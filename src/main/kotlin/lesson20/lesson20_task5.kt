@@ -2,8 +2,7 @@ package org.example.lesson20
 
 fun main() {
     val robot = Robot()
-    val reverseModifier: (String) -> String = {
-        it: String ->
+    val reverseModifier: (String) -> String = { it: String ->
         it.reversed()
     }
     robot.say()
@@ -17,13 +16,16 @@ private class Robot {
         "Добро пожаловать",
         "Спасибо",
         "Приятно было познакомиться",
-        "До свидания")
+        "До свидания"
+    )
+
+    private var modifier: (String) -> String = { it }
 
     fun say() {
-        println(listOfPhrases.random())
+        println(modifier(listOfPhrases.random()))
     }
 
     fun setModifier(modifier: (String) -> String) {
-        listOfPhrases = listOfPhrases.map { modifier(it) }
+        this.modifier = modifier
     }
 }
