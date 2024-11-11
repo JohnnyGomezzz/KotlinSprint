@@ -1,22 +1,21 @@
 package org.example.lesson22
 
 fun main() {
-    val viewModel = MainScreenViewModel(mainScreenState = MainScreenState())
+    val viewModel = MainScreenViewModel()
 
     viewModel.loadData()
 }
 
-class MainScreenViewModel(
-    var mainScreenState: MainScreenState,
-) {
+class MainScreenViewModel {
+    private var mainScreenState: MainScreenState = MainScreenState()
+
     fun loadData() {
-        this.mainScreenState = MainScreenState()
         println("отсутствие данных")
 
-        this.mainScreenState = mainScreenState.copy("данные", isLoading = true)
+        mainScreenState = mainScreenState.copy("данные", isLoading = true)
         println("загрузка данных")
 
-        this.mainScreenState = mainScreenState.copy(isLoading = false)
+        mainScreenState = mainScreenState.copy(isLoading = false)
         println("наличие загруженных данных")
     }
 }
