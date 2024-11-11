@@ -12,7 +12,10 @@ fun main() {
         ),
         4.36f
     )
-    val (name, info, date, distance) = alfaCentauri
+    val name = alfaCentauri.component1()
+    val info = alfaCentauri.component2()
+    val date = alfaCentauri.component3()
+    val distance = alfaCentauri.component4()
 
     println(
         String.format(
